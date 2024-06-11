@@ -48,7 +48,8 @@ py-3 dark:bg-neutral-800 dark:border-neutral-700">
 
                 <!-- <div class="hidden sm:block">
                 </div> -->
-                <ol class="ms-3 flex items-center whitespace-nowrap">
+                <!-- Breadcrumb -->
+                <ol class="ms-3 flex items-center whitespace-nowrap px-8">
                     <li class="flex items-center text-sm text-gray-800 dark:text-neutral-400">
                         Application Layout
                         <svg class="flex-shrink-0 mx-3 overflow-visible size-2.5 text-gray-400 dark:text-neutral-500"
@@ -61,6 +62,7 @@ py-3 dark:bg-neutral-800 dark:border-neutral-700">
                         Dashboard
                     </li>
                 </ol>
+                <!-- Breadcrumb End-->
                 <div class="flex flex-row items-center justify-end gap-2">
                     <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
                         <button id="hs-dropdown-with-header" type="button"

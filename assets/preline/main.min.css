@@ -2141,6 +2141,10 @@ select {
   margin-top: 3.5rem;
 }
 
+.mt-15 {
+  margin-top: 74px;
+}
+
 .mt-16 {
   margin-top: 4rem;
 }

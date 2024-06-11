@@ -40,16 +40,16 @@ $menu = [
   fixed inset-y-0 start-0 z-[60]
   bg-white
   lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
-  dark:bg-neutral-800 dark:border-neutral-700
+  dark:bg-neutral-800 dark:border-neutral-700 lg:mt-15
  ">
-    <div class="px-8 pt-4">
-        <!-- Logo -->
-        <a class="flex-none rounded-xl text-xl  inline-block font-semibold focus:outline-none focus:opacity-80"
+    <!-- <div class="px-8 pt-4"> -->
+    <!-- Logo -->
+    <!-- <a class="flex-none rounded-xl text-xl  inline-block font-semibold focus:outline-none focus:opacity-80"
             href="../templates/admin/index.html" aria-label="Preline">
             <img src='assets/images/logo.svg' alt='Insync Ai Logo' />
-        </a>
-        <!-- End Logo -->
-    </div>
+        </a> -->
+    <!-- End Logo -->
+    <!-- </div> -->
 
     <nav class="hs-accordion-group p-6 w-full h-full overflow-y-auto flex flex-col flex-wrap border-e border-gray-200"
         data-hs-accordion-always-open>
