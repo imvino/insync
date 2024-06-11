@@ -15366,11 +15366,14 @@ div.code-toolbar .copy-to-clipboard-button:hover {
   background-color: rgb(255 255 255 / 0.1);
 }
 
-.hs-accordion.active > .hs-accordion-toggle.hs-accordion-active\:text-blue-600 {
+/* .hs-accordion.active > .hs-accordion-toggle.hs-accordion-active\:text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
-}
+} */
 
+.hs-accordion.active > .hs-accordion-toggle.hs-accordion-active\:text-lime-600 {
+  color:#65A30D;
+}
 .hs-accordion.active > .hs-accordion-toggle.hs-accordion-active\:text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
