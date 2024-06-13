@@ -1,0 +1,14 @@
+@import url('/assets/preline/main.min.css');
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
+
+.hover\:bg-lime-100:hover {
+  background-color: #65a30d;
+}
+.w-68 {
+  width: 17rem;
+}
+.active {
+  @apply text-white bg-lime-100 dark:bg-neutral-700 dark:text-neutral-300;
+}

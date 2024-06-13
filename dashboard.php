@@ -14,7 +14,7 @@ $shortcuts = [
     <title>InSync</title>
     <link rel="shortcut icon" href="../assets/images/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/preline/main.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script src="https://kit.fontawesome.com/3e261b1b9d.js" crossorigin="anonymous"></script>
 </head>
@@ -66,12 +66,12 @@ py-3 dark:bg-neutral-800 dark:border-neutral-700">
                 <div class="flex flex-row items-center justify-end gap-2">
                     <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
                         <button id="hs-dropdown-with-header" type="button"
-                            class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700">
+                            class="h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700">
                             <img class="inline-block size-[38px] rounded-full ring-2 ring-white dark:ring-neutral-800"
                                 src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
                                 alt="Image Description">
+                            <span class="inline-block align-middle">Username</span>
                         </button>
-                        Username
                         <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-neutral-900 dark:border dark:border-neutral-700"
                             aria-labelledby="hs-dropdown-with-header">
                             <div class="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-neutral-800">
