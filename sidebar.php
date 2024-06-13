@@ -41,7 +41,7 @@ $menu = [
   bg-white
   lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
   dark:bg-neutral-800 dark:border-neutral-700 lg:mt-15
- ">
+ " style="top:74px">
     <!-- <div class="px-8 pt-4"> -->
     <!-- Logo -->
     <!-- <a class="flex-none rounded-xl text-xl  inline-block font-semibold focus:outline-none focus:opacity-80"
@@ -85,11 +85,11 @@ $menu = [
 
                 <div id="users-accordion-child"
                     class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden">
-                    <ul class="hs-accordion-group ps-8 pt-2" data-hs-accordion-always-open>
+                    <ul class="hs-accordion-group pt-2" data-hs-accordion-always-open>
                         <?php foreach ($item['submenu'] as $index => $submenuTitle) {?>
                         <li class="hs-accordion" id="users-accordion-sub-1">
                             <a href="<?php echo "/" . $item['subLinks'][$index] ?>"
-                                class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 dark:hs-accordion-active:text-white">
+                                class="ps-8 hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-300 dark:hs-accordion-active:text-white">
                                 <?php echo $submenuTitle ?>
                             </a>
                         </li>
