@@ -1,37 +1,4 @@
 <?php
-$menu = [
-    [
-        "title" => "Management Group",
-        "subLinks" => ["dashboard.php", "corridorViewer.php", "map/index.php", "corridorStatusNew.php"],
-        "submenu" => ["Portal", "View", "Map", "Status"],
-        "icon" => '<i class="fa-sharp fa-solid fa-traffic-light"></i>',
-    ],
-    [
-        "title" => "Views",
-        "subLinks" => ["cameraViewMulti.php", "cameraViewSingle.php", "recording.php"],
-        "submenu" => ["Multi Camera View", "Single Camera View", "Recording Options"],
-        "icon" => '<i class="fa-solid fa-tv"></i>',
-    ],
-    [
-        "title" => "Reports",
-        "subLinks" => ["dailySummary.php", "statistics.php", "history.php", "notifications.php"],
-        "submenu" => ["Daily Summary", "Statistics", "History Viewer", "Notifications"],
-        "icon" => '<i class="fa-solid fa-chart-simple"></i>',
-    ],
-    [
-        "title" => "Settings",
-        "subLinks" => ["config/configure.php", "renamePhases.php", "emailTester.php", "gps.php", "ntp.php", "corridorDesigner.php", "portalDesigner.php", "maintenance.php", "troubleshooting.php"],
-        "submenu" => ["Configure Detectors", "Rename Phases", "Email Test", "GPS Coordinates", "NTP Server", "Management Group View Designer", "Portal Designer", "Maintenance", "Troubleshooting"],
-        "icon" => '<i class="fa-solid fa-gear"></i>',
-    ],
-    [
-        "title" => "Account",
-        "subLinks" => ["invalidLogins.php", "editUsers.php"],
-        "submenu" => ["Invalid Logins", "Edit Users"],
-        "icon" => '<i class="fa-solid fa-user"></i>',
-    ],
-];
-
 function isActive($subLinks, $currentUrl)
 {
     foreach ($subLinks as $subLink) {
@@ -41,20 +8,20 @@ function isActive($subLinks, $currentUrl)
     }
     return false;
 }
-
+$currentUrl = basename($_SERVER['REQUEST_URI']);
 ?>
 <div id="application-sidebar" class="hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300
-    transform hidden fixed top-0 start-0 bottom-0 z-[60] w-68 bg-white border-e border-gray-200 pb-10 overflow-y-auto
+    transform hidden fixed top-0 start-0 bottom-0 z-[60] w-68 bg-white border-e border-gray-200 overflow-y-auto
     lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full
     [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700
-    dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-800 dark:border-neutral-700" style="top:74px">
+    dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-800 dark:border-neutral-700" style="top:54px">
 
     <nav class="hs-accordion-group p-6 w-full h-full flex flex-col" data-hs-accordion-always-open>
 
         <!-- Accordion Items Container -->
         <ul class="flex-grow space-y-1.5">
             <?php foreach ($menu as $item) {
-    $isActiveAccordion = isActive($item['subLinks'], $_SERVER['REQUEST_URI']) ? 'active' : '';
+    $isActiveAccordion = isActive($item['subLinks'], $currentUrl) ? 'active' : '';
     ?>
             <li class="hs-accordion <?php echo $isActiveAccordion; ?>" id="users-accordion">
                 <button type="button" class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5
@@ -80,6 +47,7 @@ function isActive($subLinks, $currentUrl)
                     <ul class="hs-accordion-group pt-2" data-hs-accordion-always-open>
                         <?php foreach ($item['submenu'] as $index => $submenuTitle) {
         $isActive = ($_SERVER['REQUEST_URI'] == "/" . $item['subLinks'][$index]) ? 'text-white bg-lime-600 dark:bg-neutral-700 dark:text-neutral-300' : '';
+        echo $submenuTitle == 'View Designer' || $submenuTitle == 'Maintenance' ? '<hr/>' : ''
         ?>
                         <li class="hs-accordion my-1" id="users-accordion-sub-1">
                             <a href="<?php echo "/" . $item['subLinks'][$index] ?>"
