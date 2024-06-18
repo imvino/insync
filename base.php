@@ -8,9 +8,9 @@ $current_page = basename($_SERVER['REQUEST_URI']);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>InSync</title>
-    <link rel="shortcut icon" href="../assets/images/favicon.svg">
+    <link rel="shortcut icon" href="/assets/images/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://kit.fontawesome.com/3e261b1b9d.js" crossorigin="anonymous"></script>
@@ -64,13 +64,13 @@ $current_page = basename($_SERVER['REQUEST_URI']);
 
     <!-- Content -->
     <div class="w-full lg:ps-64">
-        <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+        <div class="p-4 mx-2 sm:p-6 space-y-4 sm:space-y-6">
             <?php echo $content ?? 'Loading...' ?>
         </div>
     </div>
     <!-- End Content -->
     <!-- ========== END MAIN CONTENT ========== -->
-    <script src="./assets/preline/index.js"></script>
+    <script src="/assets/preline/index.js"></script>
 </body>
 
 </html>
