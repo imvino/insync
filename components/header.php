@@ -22,8 +22,8 @@ py-2 dark:bg-neutral-800 dark:border-neutral-700">
         <div class="me-5 lg:me-0" style="min-width: 210px;">
             <!-- Logo -->
             <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
-                href="../templates/admin/index.html" aria-label="Preline">
-                <img src='assets/images/logo.svg' alt='Insync Ai Logo' width="150" />
+                href="/" aria-label="Preline">
+                <img src='/assets/images/logo.svg' alt='Insync Ai Logo' width="150" />
             </a>
             <!-- End Logo -->
         </div>
