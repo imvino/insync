@@ -1,12 +1,41 @@
 <?php
 // Start output buffering
 ob_start();
-?>
+$cssClass = array(
+    'tooltip' => "hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 tooltip text-xs font-medium text-white rounded shadow-sm",
+    'label' => 'block text-sm font-medium min-w-[155px]',
+);
+
+function toolTip($help)
+{?>
+<div class="px-2 text-gray-600 hs-tooltip [--placement:right] inline-block">
+    <i class="fa-light fa-circle-info"></i>
+    <span class="<?php echo $GLOBALS['cssClass']['tooltip'] ?>" role="tooltip">
+        <div class="helpBox">
+            <ul><?php foreach ($help as $key => $value) {echo "<li>$value</li>";}?>
+            </ul>
+        </div>
+    </span>
+</div>
+<?php }
+function checkboxList($title, $help, $css = '')
+{
+    $id = str_replace(' ', '_', strtolower($title));
+    ?>
+<div class="flex items-center">
+    <label for="<?php echo $id ?>"
+        class="<?php echo $GLOBALS['cssClass']['label'] . ' ' . $css ?>"><?php echo $title ?></label>
+    <input type="checkbox"
+        class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+        id="<?php echo $id ?>">
+    <?php echo toolTip($help); ?>
+</div>
 <?php
-function dropdown($id)
+}
+function dropdown($id, $options, $selected)
 {
     ?>
-<div class="hs-dropdown relative inline-flex" x-data="{ selectedOption_<?php echo $id ?>: 'Every second' }">
+<div class="hs-dropdown relative inline-flex" x-data="{ selectedOption_<?php echo $id ?>: '<?php echo $selected ?>' }">
     <button id="hs-dropdown-default" type="button" class="hs-dropdown-toggle py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border
         border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50
         disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white
@@ -21,10 +50,9 @@ function dropdown($id)
     <div class="hs-dropdown-menu  z-[80] transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-40 bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
         aria-labelledby="hs-dropdown-default">
         <?php
-foreach (array(1, 2, 5, 30, 60) as $index) {
-        $label = $index == 1 ? "Every second" : "Every $index seconds";
+foreach ($options as $index) {
         echo "<a class='dropdown-item flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700'
-             href='#' @click.prevent='selectedOption_$id=\"$label\"'>{$label}</a>";
+             href='#' @click.prevent='selectedOption_$id=\"$index\"'>{$index}</a>";
     }
     ?>
     </div>
@@ -33,7 +61,6 @@ foreach (array(1, 2, 5, 30, 60) as $index) {
 }
 ?>
 
-?>
 <div id="hs-vertically-centered-scrollable-modal"
     class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
     <div
@@ -57,12 +84,10 @@ foreach (array(1, 2, 5, 30, 60) as $index) {
                     </svg>
                 </button>
             </div>
-            <div class="text-gray-500 text-center">Leave both password fields blank to keep the current
-                password.</div>
-
+            <div class="text-gray-500 text-center">Leave both password fields blank to keep the current password.</div>
             <div class="p-4 overflow-y-auto">
                 <div class="flex items-center py-3 px-4">
-                    <label class="block text-sm font-medium min-w-[130px]">Password</label>
+                    <label class="<?php echo $cssClass['label'] ?>">Password</label>
                     <div class="relative">
                         <input id="hs-toggle-password" type="password"
                             class="py-2 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
@@ -90,7 +115,7 @@ foreach (array(1, 2, 5, 30, 60) as $index) {
                     </div>
                 </div>
                 <div class="flex items-center py-3 px-4">
-                    <label class="block text-sm font-medium min-w-[130px]">Confirm Password</label>
+                    <label class="<?php echo $cssClass['label'] ?>">Confirm Password</label>
                     <div class="relative">
                         <input id="hs-toggle-password" type="password"
                             class="py-2 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
@@ -118,25 +143,45 @@ foreach (array(1, 2, 5, 30, 60) as $index) {
                     </div>
                 </div>
                 <div class="flex items-center py-3 px-4">
-                    <label class="block text-sm font-medium min-w-[130px]">Web/API Access</label>
-                    <?php echo dropdown(1) ?>
+                    <label class="<?php echo $cssClass['label'] ?>">Web/API Access</label>
+                    <?php echo dropdown(1, array('WebUI & API', 'API Only'), 'API Only') .
+toolTip(array('<strong>API Only:</strong> User has access to the InSync WebUI API only.',
+    '<strong>WebUI &amp; API:</strong> User has access to both options.')) ?>
                 </div>
+
                 <div class="flex items-center py-3 px-4">
-                    <label class="block text-sm font-medium min-w-[130px]">Cameras</label>
-                    <?php echo dropdown(2) ?>
+                    <label class="<?php echo $cssClass['label'] ?>">Cameras</label>
+                    <?php echo dropdown(2, array('Disabled', 'View Only', 'View / Control'), 'View / Control') .
+toolTip(array('<strong>Disabled:</strong> No access to cameras.', '<strong>View Only:</strong> User can view cameras but not control or record.',
+    '<strong>View ⁄ Record:</strong> User has full access to view, control, and record cameras.')); ?>
                 </div>
+
                 <div class="flex items-center py-3 px-4">
-                    <label class="block text-sm font-medium min-w-[130px]">Session Timeout</label>
-                    <?php echo dropdown(3) ?>
+                    <label class="<?php echo $cssClass['label'] ?>">Session Timeout</label>
+                    <?php echo dropdown(2, array('Disabled', 5, 10, 15, 30, 45, 60, 120, 540), '5') .
+toolTip(array('The number of minutes your browser can sit', 'idle before you are logged out of the WebUI')) ?>
+
+                </div>
+                <div class="flex items-top py-3 px-4">
+                    <div class="flex flex-col space-y-4 ">
+
+                        <?php echo checkboxList('User Enabled', array('Chooses if the user is active ⁄ inactive.', 'If they are not enabled, they cannot login.')) ?>
+                        <?php echo checkboxList('InSync Maintenance', array('Enables ⁄ disables access to the Maintenance page.')) ?>
+                        <?php echo checkboxList('Configure Intersection', array('Enables ⁄ disables configuration via', 'the "Configure Detectors" web utility.')) ?>
+                        <?php echo checkboxList('Administer Users', array('Enables ⁄ disables administration of users.', 'With this flag, users can add, edit, or delete any user!')) ?>
+                    </div>
+                    <div class="flex flex-col space-y-4 mx-4">
+                        <?php echo checkboxList('View Reports', array('Enables ⁄ disables viewing of Reports pages.'), 'min-w-[230px] ') ?>
+                        <?php echo checkboxList('Management Group Maintenance', array('Enables ⁄ disables access to Management Group Maintenance.'), 'min-w-[230px] ') ?>
+                        <?php echo checkboxList('Manual Traffic Calls', array('Enables ⁄ disables placing of manual', 'calls, queues, and pedestrian button pushes.'), 'min-w-[230px] ') ?>
+                    </div>
                 </div>
             </div>
             <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t">
                 <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white
                     text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-overlay="#hs-vertically-centered-scrollable-modal">
-                    Close
-                </button>
-                <!-- hover:bg-gray-50 hover:text-gray-800 hover:shadow-sm -->
+                    Close </button>
                 <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border
                     bg-lime-600 text-white disabled:opacity-50 disabled:pointer-events-none">
                     Save
@@ -196,5 +241,4 @@ $content = ob_get_clean();
 
 // Include the base.php file and pass the content
 include '../../base.php';
-
 ?>

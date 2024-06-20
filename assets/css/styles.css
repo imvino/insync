@@ -9,6 +9,33 @@
 .hover\:text-lime-100:hover {
   color: #65a30d;
 }
+
+/* Tooltip container */
+.tooltip {
+  position: absolute;
+  left: 100%; /* Position the tooltip to the right of the icon */
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #111827;
+  padding: 8px;
+  border-radius: 4px;
+  width: max-content;
+  z-index: 10;
+  white-space: nowrap; /* Prevent tooltip text from wrapping */
+}
+
+/* Arrow */
+.tooltip:after {
+  position: absolute;
+  top: 50%;
+  right: 100%; /* Position the arrow to the left of the tooltip */
+  transform: translateY(-50%);
+  content: '';
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #111827 transparent transparent;
+}
+
 .w-68 {
   width: 17rem;
 }
