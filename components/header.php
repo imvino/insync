@@ -46,7 +46,8 @@ py-2 dark:bg-neutral-800 dark:border-neutral-700">
             <!-- Breadcrumb -->
 
             <ol class="ms-3 flex items-center whitespace-nowrap px-8">
-                <?php if ($breadcrumb['title']) {?>
+                <?php 
+                if (!empty($breadcrumb)) {?>
                 <li class="flex items-center text-sm text-gray-800 dark:text-neutral-400">
                     <?php echo $breadcrumb['title'] ?>
                     <svg class="flex-shrink-0 mx-3 overflow-visible size-2.5 text-gray-400 dark:text-neutral-500"

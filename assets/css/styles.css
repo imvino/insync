@@ -36,6 +36,9 @@
   border-color: transparent #111827 transparent transparent;
 }
 
+.ml {
+  margin-left: 10px;
+}
 .w-68 {
   width: 17rem;
 }
