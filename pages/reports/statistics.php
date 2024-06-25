@@ -3,7 +3,7 @@
 ob_start();
 ?>
 
-<div>This is the contact page content.</div>
+<?php include '../../components/daterange.php'?>
 
 <?php
 // Get the buffered output

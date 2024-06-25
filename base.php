@@ -9,6 +9,7 @@ $current_page = basename($_SERVER['REQUEST_URI']);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>InSync</title>
     <link rel="shortcut icon" href="/assets/images/favicon.svg">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->

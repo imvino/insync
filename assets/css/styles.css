@@ -6,10 +6,16 @@
 .hover\:bg-lime-100:hover {
   background-color: #65a30d;
 }
-.hover\:text-lime-100:hover {
+.hover\:text-lime-100:hover,
+.text-lime-100 {
   color: #65a30d;
 }
-
+.border-lime-100 {
+  border-color: #65a30d;
+}
+[x-data='app'] select {
+  background: none;
+}
 /* Tooltip container */
 .tooltip {
   position: absolute;
@@ -42,6 +48,10 @@
 .w-68 {
   width: 17rem;
 }
-.active {
-  @apply text-white bg-lime-100 dark:bg-neutral-700 dark:text-neutral-300;
+
+button:focus {
+  outline: none !important;
+}
+select:focus {
+  box-shadow: none;
 }
