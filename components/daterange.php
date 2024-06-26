@@ -49,15 +49,6 @@
                         placeholder="Select Date/Time">
                 </div>
             </div>
-
-            <button type="button" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm
-    hover:bg-lime-100 hover:text-white disabled:opacity-50 disabled:pointer-events-none">
-                Load
-            </button>
-            <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-lime-100 text-lime-100 hover:border-blue-600
-                 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none ">
-                <i class="fa-regular fa-arrow-down-to-bracket"></i>
-            </button>
         </div>
 
         <div class="absolute bg-white mt-2 rounded-lg shadow p-4 sm:w-80 w-full" x-show="showDatepicker" x-transition>
