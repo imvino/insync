@@ -1,139 +1,16 @@
-
-  <title>Alpine x Tailwind Tags Input</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Plain JS Tags Input</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.1.2/tailwind.min.css'>
-  
-
-  <script>
-  window.console = window.console || function(t) {};
-</script>
-
-  
-  
-</head>
-
-<body translate="no">
-  <div class="flex flex-col h-screen px-2 justify-center items-center text-gray-500 bg-gray-50 space-y-2">
-        <div x-data="config()" x-init="window.alpineComponent = $data">
-            <div
-                class="hs-select relative ps-0.5 pe-9 flex items-center flex-wrap text-nowrap w-full border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 space-x-2 break-words inline-block">
-                <template x-for="tag in new Set([...tags])">
-                    <span class="rounded-full px-1.5 py-0.5 text-sm bg-indigo-500 text-indigo-100">
-                        <span x-text="tag"></span>
-                        <span @click="remove(tag)" class="font-semibold cursor-pointer">&times;</span>
-                    </span>
-                </template>
-                <input id="tagInputField" x-model="input" @keydown.enter.prevent="addTag()" @keydown.space.prevent="addTag()"
-                    @keydown.backspace="backspace()" required rows="3"
-                    class="px-2 py-1 focus:outline-none text-gray-500" name="message" placeholder="Add New Tag"></input>
-            </div>
-             <!-- Dropdown menu -->
-    <div class="absolute left-0 w-full bg-white border border-gray-300 rounded-md shadow-lg hidden" id="dropdown">
-        <!-- General Movements section -->
-        <div class="border-b border-gray-200">
-            <div class="bg-gray-100 px-4 py-2 font-semibold text-sm">GENERAL MOVEMENTS</div>
-            <ul class="py-1">
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Phase Volumes">
-                    Phase Volumes</li>
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Pedestrians">
-                    Pedestrians</li>
-            </ul>
-        </div>
-
-        <!-- Results section -->
-        <div class="border-b border-gray-200">
-            <div class="bg-gray-100 px-4 py-2 font-semibold text-sm">RESULTS</div>
-            <ul class="py-1">
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Errors">Errors
-                </li>
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Successes">
-                    Successes</li>
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Tunnels">
-                    Tunnels</li>
-            </ul>
-        </div>
-
-        <!-- Periods section -->
-        <div>
-            <div class="bg-gray-100 px-4 py-2 font-semibold text-sm">PERIODS</div>
-        </div>
-    </div>
-            <div class="flex justify-center items-center mt-4">
-                <form action="">
-                    <input hidden :value="output()" type="text" name="tags">
-                    <button
-                        class="px-3 py-1 bg-indigo-500 text-indigo-100 rounded focus:outline-none focus:ring-2 focus:ring-indigo-200"
-                        type="submit">Submit</button>
-                </form>
-            </div>
-
-        </div>
-<pre class="p-4 bg-black text-gray-100 rounded">
-> select dropdown to add tag
-> Backspace to clear tags
-> Submitting the form will get you a comma seperated list of unique tags
-</pre>
-    </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.js'></script>
-      <script id="rendered-js" >
-
-const tagInput = document.getElementById('tagInput');
-const tagInputField = document.getElementById('tagInputField');
-const dropdown = document.getElementById('dropdown');
-
-
-        // Toggle dropdown visibility
-tagInputField.addEventListener('focus', () => dropdown.classList.remove('hidden'));
-
-
-
-function config() {
-  return {
-    input: '',
-    tags: [],
-    addTag(tag) {
-      if (tag) {
-        this.tags.push(tag);
-      } else if (this.input.trim() !== '') {
-        this.tags.push(this.input.trim());
-      }
-      this.input = '';
-    },
-    backspace() {
-      if (this.input.trim() == '') {
-        this.tags.pop();
-      }
-    },
-    remove(tag) {
-      this.tags = this.tags.filter(e => e !== tag);
-    },
-    output() {
-      var output = new Set([...this.tags]);
-      var text = [];
-      output.forEach(tag => {
-        text += tag + ",";
-      });
-      return text.slice(0, -1);
-    } };
-
-}
-
-
-// Add tag when dropdown item is clicked
-dropdown.addEventListener('click', (e) => {
-  if (e.target.tagName === 'LI') {
-    const tagValue = e.target.dataset.value;
-    console.log('clicked', tagValue);
-    if (window.alpineComponent) {
-      window.alpineComponent.addTag(tagValue);
-      dropdown.classList.add('hidden');
-      console.log(window.alpineComponent.tags);
+  <style>
+    .hidden {
+      display: none;
     }
-  }
-});
-//# sourceURL=pen.js
-    </script>
+  </style>
+</head>
+<body translate="no">
 
-  
 </body>
-
 </html>

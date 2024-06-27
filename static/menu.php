@@ -24,7 +24,7 @@ $menu = [
     [
         "title" => "Settings",
         "mainLink" => "settings",
-        "subLinks" => ["config/configure", "renamePhases", "gps", "ntp", "corridorDesigner", "portalDesigner", "maintenance", "emailTester", "troubleshooting"],
+        "subLinks" => ["configure", "renamePhases", "gps", "ntp", "corridorDesigner", "portalDesigner", "maintenance", "emailTester", "troubleshooting"],
         "submenu" => ["Configure Detectors", "Rename Phases", "GPS Coordinates", "NTP Server", "View Designer", "Portal Designer", "Maintenance", "Email Test", "Troubleshooting"],
         "icon" => '<i class="fa-solid fa-gear"></i>',
     ],

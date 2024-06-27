@@ -1,91 +1,137 @@
-<div class="relative w-64">
-    <div class="flex flex-wrap gap-2 p-2 border rounded-md bg-white">
-        <div class="flex items-center bg-gray-100 rounded-full px-3 py-1 text-sm">
-            Pedestrians
-            <button class="ml-2 text-gray-500 hover:text-gray-700 focus:outline-none">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        clip-rule="evenodd" />
-                </svg>
-            </button>
-        </div>
-        <input type="text" class="flex-grow outline-none text-sm" placeholder="Add more...">
-    </div>
-</div>
-<div class="relative w-64" id="tagInput">
-    <!-- Input area for tags -->
-    <div class="flex flex-wrap items-center border border-gray-300 rounded-md p-2 mb-1" id="tagContainer">
-        <input type="text" class="flex-grow outline-none text-sm" placeholder="Include" id="tagInputField">
-    </div>
+<?php
+// Function to render the dropdown menu
+function render_dropdown_menu($menu)
+{
+    $head = "bg-gray-100 px-4 py-2 font-semibold text-sm";
+    $li = "px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600";
 
-    <!-- Dropdown menu -->
-    <div class="absolute left-0 w-full bg-white border border-gray-300 rounded-md shadow-lg hidden" id="dropdown">
-        <!-- General Movements section -->
-        <div class="border-b border-gray-200">
-            <div class="bg-gray-100 px-4 py-2 font-semibold text-sm">GENERAL MOVEMENTS</div>
-            <ul class="py-1">
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Phase Volumes">
-                    Phase Volumes</li>
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Pedestrians">
-                    Pedestrians</li>
-            </ul>
-        </div>
-
-        <!-- Results section -->
-        <div class="border-b border-gray-200">
-            <div class="bg-gray-100 px-4 py-2 font-semibold text-sm">RESULTS</div>
-            <ul class="py-1">
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Errors">Errors
-                </li>
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Successes">
-                    Successes</li>
-                <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600" data-value="Tunnels">
-                    Tunnels</li>
-            </ul>
-        </div>
-
-        <!-- Periods section -->
-        <div>
-            <div class="bg-gray-100 px-4 py-2 font-semibold text-sm">PERIODS</div>
-        </div>
-    </div>
-</div>
-
-<script>
-const tagInput = document.getElementById('tagInput');
-const tagContainer = document.getElementById('tagContainer');
-const tagInputField = document.getElementById('tagInputField');
-const dropdown = document.getElementById('dropdown');
-
-// Toggle dropdown visibility
-tagInputField.addEventListener('focus', () => dropdown.classList.remove('hidden'));
-document.addEventListener('click', (e) => {
-    if (!tagInput.contains(e.target)) dropdown.classList.add('hidden');
-});
-
-// Add tag when dropdown item is clicked
-dropdown.addEventListener('click', (e) => {
-    if (e.target.tagName === 'LI') {
-        addTag(e.target.dataset.value);
-        dropdown.classList.add('hidden');
+    foreach ($menu as $section) {
+        echo '<div class="border-b border-gray-200">';
+        echo '<div class="' . $head . '">' . $section['title'] . '</div>';
+        echo '<ul class="py-1">';
+        foreach ($section['items'] as $item) {
+            echo '<li @click="toggleTag(\'' . $item . '\')" :class="{\'bg-gray-100\': tags.includes(\'' . $item . '\')}" class="' . $li . '">' . $item . '</li>';
+        }
+        echo '</ul>';
+        echo '</div>';
     }
-});
-
-// Function to add a new tag
-function addTag(value) {
-    const tag = document.createElement('span');
-    tag.classList.add('bg-gray-200', 'text-gray-700', 'rounded-md', 'px-2', 'py-1', 'text-sm', 'mr-2', 'mb-2', 'flex',
-        'items-center');
-    tag.innerHTML = `
-    ${value}
-    <button class="ml-1 text-gray-500 hover:text-gray-700 focus:outline-none" onclick="removeTag(this.parentElement)">×</button>
-  `;
-    tagContainer.insertBefore(tag, tagInputField);
 }
+function inputTags($title, $dropdown_menu)
+{
 
-// Function to remove a tag
-function removeTag(tag) {
-    tagContainer.removeChild(tag);
+    ?>
+<div x-data="tagSelector()">
+    <div id="tagInputContainer" class="max-width-container">
+        <div class="flex flex-col">
+            <label class="mb-1 text-sm font-medium text-gray-700">
+                <?php echo $title ?>
+            </label>
+            <div @click="openDropdown" id="tagInput"
+                class="hs-dropdown-toggle py-1 px-2 inline-flex items-center gap-x-2 font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm disabled:opacity-50 disabled:pointer-events-none">
+                <span id="tagDisplay">
+                    <template x-for="tag in tags" :key="tag">
+                        <span
+                            class="tag rounded-full px-2 py-0 text-gray-600 border text-[10px] inline-flex items-center mr-1 mb-1">
+                            <span x-text="tag"></span>
+                            <span @click.stop="removeTag(tag)" class="font-semibold cursor-pointer ml-1">&times;</span>
+                        </span>
+                    </template>
+                </span>
+                <input x-ref="hiddenInputField" @keydown.enter.prevent="addTag($event.target.value)"
+                    @keydown.space.prevent="addTag($event.target.value)" @keydown.backspace="handleBackspace"
+                    type="text" class="hidden-input" />
+            </div>
+        </div>
+        <!-- Dropdown menu -->
+        <div x-show="isOpen" @click.away="closeDropdown"
+            class="w-full absolute mt-1 max-w-[230px] bg-white border border-gray-100 rounded-md shadow-lg"
+            id="dropdown">
+            <?php render_dropdown_menu($dropdown_menu);?>
+        </div>
+
+        <form action="">
+            <input x-model="tagsString" id="hiddenInput" type="text" name="tags" hidden>
+        </form>
+
+    </div>
+</div>
+<?php
+}?>
+<script>
+function tagSelector() {
+    return {
+        tags: [],
+        isOpen: false,
+        tagsString: '',
+        openDropdown() {
+            this.isOpen = true;
+            this.$nextTick(() => this.$refs.hiddenInputField.focus());
+        },
+        closeDropdown() {
+            this.isOpen = false;
+        },
+        addTag(tag) {
+            tag = tag.trim();
+            if (tag && !this.tags.includes(tag)) {
+                this.tags.push(tag);
+                this.updateTagsString();
+            }
+            this.$refs.hiddenInputField.value = '';
+        },
+        removeTag(tag) {
+            this.tags = this.tags.filter(t => t !== tag);
+            this.updateTagsString();
+        },
+        toggleTag(tag) {
+            if (this.tags.includes(tag)) {
+                this.removeTag(tag);
+            } else {
+                this.addTag(tag);
+            }
+            this.closeDropdown();
+        },
+        handleBackspace(e) {
+            if (e.target.value === '' && this.tags.length > 0) {
+                this.tags.pop();
+                this.updateTagsString();
+            }
+        },
+        updateTagsString() {
+            this.tagsString = this.tags.join(',');
+        }
+    }
 }
 </script>
+
+<style>
+.max-width-container {
+    width: 400px;
+}
+
+.tag {
+    display: inline-block;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background-color: #f8fafc;
+}
+
+.tag span {
+    cursor: pointer;
+}
+
+.hs-dropdown-toggle {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 34px;
+    cursor: text;
+}
+
+.hidden-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+</style>

@@ -38,7 +38,6 @@ HTML;
 
 <div class="flex items-center">
     <?php include '../../components/daterange.php';?>
-    <!-- <div class="mt-5"> -->
     <button type="button"
         class="mt-6 ml-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-lime-100 hover:text-white disabled:opacity-50 disabled:pointer-events-none">
         Load
@@ -47,8 +46,6 @@ HTML;
         class="mt-6 ml-2 py-2.5 px-3 rounded-lg border border-lime-100 text-lime-100 hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none">
         <i class="fa-regular fa-arrow-down-to-bracket"></i>
     </button>
-    <!-- </div> -->
-
 </div>
 
 <div class="w-full bg-white rounded-lg shadow-md dark:bg-neutral-800">
