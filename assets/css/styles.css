@@ -7,10 +7,13 @@
   background-color: #65a30d;
 }
 .hover\:text-lime-100:hover,
+.checked\:text-lime-100:checked,
 .text-lime-100 {
   color: #65a30d;
 }
-.border-lime-100 {
+.border-lime-100,
+.focus\:checked\:border-lime-100:checked:focus,
+.checked\:border-lime-100:checked {
   border-color: #65a30d;
 }
 [x-data='app'] select {
@@ -68,4 +71,8 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
+}
+[type='checkbox']:focus,
+[type='radio']:focus {
+  --tw-ring-color: transparent;
 }

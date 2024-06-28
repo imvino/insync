@@ -1,12 +1,63 @@
 <?php
 // Start output buffering
 ob_start();
-?>
-<label>Phase 1</label> <input type="text"
-    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-    placeholder="Phase Name">
-<input type="text"
-    class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+$default = [
+    [
+        'full' => 'Northbound Left',
+        'short' => 'NL',
+    ],
+    [
+        'full' => 'Southbound Through',
+        'short' => 'ST',
+    ],
+    [
+        'full' => 'Westbound Left',
+        'short' => 'WL',
+    ],
+    [
+        'full' => 'Eastbound Through',
+        'short' => 'ET',
+    ],
+    [
+        'full' => 'Southbound Left',
+        'short' => 'SL',
+    ],
+    [
+        'full' => 'Northbound Through',
+        'short' => 'NT',
+    ],
+    [
+        'full' => 'Eastbound Left',
+        'short' => 'EL',
+    ],
+    [
+        'full' => 'Westbound Through',
+        'short' => 'WT',
+    ],
+];
+foreach ($default as $key => $item) {
+    ?>
+<div class="flex items-center space-x-4">
+    <label class="w-full max-w-24 ">Phase <?php echo $key + 1 ?></label> <input type="text"
+        class="py-2 block w-full max-w-sm border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+        placeholder="Phase Name" value="<?php echo $item['full'] ?>">
+    <input type="text" value="<?php echo $item['short'] ?>"
+        class="py-2 block w-full max-w-20 border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+</div>
+<?php
+}?>
+
+<p class="text-gray-400 text-xs">Note: Inactive phases are not shown.</p>
+<div class="flex justify-start items-center gap-x-2">
+    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white
+                    text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+        data-hs-overlay="#hs-vertically-centered-scrollable-modal">
+        Reset </button>
+    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border
+                    bg-lime-600 text-white disabled:opacity-50 disabled:pointer-events-none">
+        Save
+    </button>
+</div>
 <?php
 // Get the buffered output
 $content = ob_get_clean();
