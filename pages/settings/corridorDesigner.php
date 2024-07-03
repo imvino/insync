@@ -1,14 +1,13 @@
 <?php
 extract(require_once '../../utils/tools.php');
-// Start output buffering
+
 ob_start();
 $tab = "py-2.5 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
 ?>
 <div>
     <div class="flex justify-between items-center">
-        <div class="flex flex-col">
-            <?php echo inputBox(['title' => 'Portal Title', 'value' => 'Portal Title', 'placeholder' => 'Portal Title']); ?>
-        </div>
+        <div class="flex flex-col"> <?php echo inputBox(['placeholder' => 'Portal Title', 'title' => 'Management Group Title', 'value' => '41st Ave / Capitolia Mall']);
+?></div>
         <div>
             <div class="hs-dropdown relative inline-flex">
                 <button id="hs-dropdown-default" type="button" class="hs-dropdown-toggle py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border

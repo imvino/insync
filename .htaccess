@@ -5,4 +5,4 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
 
 # subfolder redirect
-RewriteRule ^(management|view|reports|settings|account)/(.*)$ pages/$1/$2 [L]
+RewriteRule ^(management|views|reports|settings|account)/(.*)$ pages/$1/$2 [L]

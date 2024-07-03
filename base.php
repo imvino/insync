@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/static/menu.php';
+include __DIR__ . '/utils/menu.php';
 $current_page = basename($_SERVER['REQUEST_URI']);
 ?>
 <html lang="en" class="relative min-h-full h-full">

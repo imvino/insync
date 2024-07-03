@@ -2,7 +2,7 @@
 function isActive($subLinks, $currentUrl)
 {
     foreach ($subLinks as $subLink) {
-        if (strpos($currentUrl, $subLink) !== false) {
+        if (basename($currentUrl) === $subLink) {
             return true;
         }
     }
