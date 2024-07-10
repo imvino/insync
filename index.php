@@ -1,7 +1,7 @@
 <?php
 $shortcuts = [
     "titles" => ['Multiple Cameras View', 'Daily Summary', 'History Viewer', 'Invalid Logins'],
-    "links" => ["cameraViewMulti.php", "reports/dailySummary", "reports/history", "account/invalidLogins"],
+    "links" => ["views/cameraViewMulti", "reports/dailySummary", "reports/history", "account/invalidLogins"],
     "icons" => ['<i class="fa-solid fa-grid-horizontal"></i>', '<i class="fa-solid fa-file-chart-column"></i>',
         '<i class="fa-solid fa-list-timeline"></i>', '<i class="fa-solid fa-arrow-right-to-arc"></i>'],
 ];
