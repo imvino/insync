@@ -49,15 +49,14 @@ $currentUrl = basename($_SERVER['REQUEST_URI']);
         $requestUriParts = explode('/', $_SERVER['REQUEST_URI']);
         $lastSegment = end($requestUriParts);
 
-        $isActive = ($lastSegment == $item['subLinks'][$index]) ? 'text-white bg-lime-600 dark:bg-neutral-700 dark:text-neutral-300' : '';
+        $isActive = ($lastSegment == $item['subLinks'][$index]) ? 'text-white bg-lime-600' : '';
         echo $submenuTitle == 'View Designer' || $submenuTitle == 'Maintenance' ? '<hr/>' : ''
         ?>
                         <li class="hs-accordion my-1" id="users-accordion-sub-1">
-                            <a href="<?php echo "/" . $item['mainLink'] . "/" . $item['subLinks'][$index] ?>"
-                                class="ps-8 hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5
+                            <a href="<?php echo "/" . $item['mainLink'] . "/" . $item['subLinks'][$index] ?>" class="ps-8 hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5
                                 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-neutral-700
-                                hover:text-white rounded-lg hover:bg-lime-100 dark:bg-neutral-800 dark:hover:bg-neutral-700
-                                dark:text-neutral-400 dark:hover:text-neutral-300 dark:hs-accordion-active:text-white <?php echo $isActive; ?>">
+                                hover:text-white rounded-lg hover:bg-lime-100 dark:text-white
+                                <?php echo $isActive; ?>">
                                 <?php echo $submenuTitle ?>
                             </a>
                         </li>

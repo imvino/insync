@@ -23,7 +23,7 @@ function inputTags($title, $dropdown_menu)
 <div x-data="tagSelector()">
     <div id="tagInputContainer" class="max-width-container">
         <div class="flex flex-col">
-            <label class="mb-1 text-sm font-medium text-gray-700">
+            <label class="mb-1 text-sm font-medium text-gray-700 dark:text-white">
                 <?php echo $title ?>
             </label>
             <div @click="openDropdown" id="tagInput"

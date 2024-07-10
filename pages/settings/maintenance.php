@@ -2,11 +2,11 @@
 // Start output buffering
 ob_start();
 
-$tabCss = "py-2 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none";
+$tabCss = "py-2 px-4 inline-flex hover:bg-lime-100 hover:text-white items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none";
 
 ?>
 <div class="flex items-center space-x-4">
-    <label class="text-sm font-semibold">Restore Configuration</label>
+    <label class="text-sm font-semibold dark:text-white">Restore Configuration</label>
     <div class="flex justify-start items-center">
         <div class="inline-flex rounded-lg shadow-sm ml-2">
             <button type="button" class="<?php echo $tabCss ?>">
@@ -19,7 +19,7 @@ $tabCss = "py-2 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg 
     </div>
 </div>
 <div class="flex items-center space-x-4">
-    <label class="text-sm font-semibold">Save Archive</label>
+    <label class="text-sm font-semibold dark:text-white">Save Archive</label>
     <div class="flex justify-start items-center">
         <div class="inline-flex rounded-lg shadow-sm ml-2">
             <button type="button" class="<?php echo $tabCss ?>">
@@ -30,14 +30,15 @@ $tabCss = "py-2 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg 
             <input type="checkbox"
                 class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 disabled:opacity-50 disabled:pointer-events-none"
                 id="hs-default-checkbox">
-            <label for="hs-default-checkbox" class="ml-2 block text-sm text-gray-800 font-medium min-w-[155px]">Include
+            <label for="hs-default-checkbox"
+                class="ml-2 block text-sm text-gray-800 font-medium min-w-[155px] dark:text-white">Include
                 Static
                 Files</label>
         </div>
     </div>
 </div>
 <div class="flex items-center space-x-4">
-    <label class="text-sm font-semibold">Application Deployment</label>
+    <label class="text-sm font-semibold dark:text-white">Application Deployment</label>
     <div class="flex justify-start items-center">
         <div class="inline-flex rounded-lg shadow-sm ml-2">
             <button type="button" class="<?php echo $tabCss ?>">
@@ -47,7 +48,7 @@ $tabCss = "py-2 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg 
     </div>
 </div>
 <div class="flex items-center space-x-4">
-    <label class="text-sm font-semibold">Processor Management</label>
+    <label class="text-sm font-semibold dark:text-white">Processor Management</label>
     <div class="flex justify-start items-center">
         <div class="inline-flex rounded-lg shadow-sm ml-2">
             <button type="button" class="<?php echo $tabCss ?>">
@@ -63,7 +64,7 @@ $tabCss = "py-2 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg 
     </div>
 </div>
 <div class="flex items-center space-x-4">
-    <label class="text-sm font-semibold">Network Utilities</label>
+    <label class="text-sm font-semibold dark:text-white">Network Utilities</label>
     <div class="flex justify-start items-center">
         <div class="inline-flex rounded-lg shadow-sm ml-2">
             <button type="button" class="<?php echo $tabCss ?>">
@@ -73,7 +74,7 @@ $tabCss = "py-2 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg 
     </div>
 </div>
 <div class="flex items-center space-x-4">
-    <label class="text-sm font-semibold">Remote Desktop Access</label>
+    <label class="text-sm font-semibold dark:text-white">Remote Desktop Access</label>
     <div class="flex justify-start items-center">
         <div class="relative inline-block">
             <input type="checkbox" id="hs-default-switch-with-icons" class="peer relative w-[3.25rem] h-7 p-px bg-gray-100 border-transparent text-transparent rounded-full cursor-pointer transition-colors

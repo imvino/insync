@@ -8,10 +8,10 @@
 <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
     <div class="relative my-2">
         <input type="hidden" name="date" x-ref="date">
-        <input type="text" readonly x-model="datepickerValue" style="border-color:inherit"
+        <input type="text" readonly x-model="datepickerValue"
             @click="showDatepicker = !showDatepicker; if (showDatepicker) initDate();"
             @keydown.escape="showDatepicker = false"
-            class="w-full px-10 py-2 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline-none text-gray-600 text-[15px]"
+            class="w-full px-10 py-2 leading-none rounded-lg shadow-sm  dark:border-neutral-700 focus:outline-none focus:shadow-outline-none text-gray-900 text-[15px]"
             placeholder="Select date">
 
         <div class="absolute top-0 left-0 px-3 py-2">

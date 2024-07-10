@@ -4,7 +4,7 @@ extract(require_once '../../utils/tools.php');
 
 ob_start();
 $css = array(
-    'label' => 'block text-sm font-medium min-w-[155px]',
+    'label' => 'block text-sm font-medium min-w-[155px] dark:text-white',
 );
 
 function password($id)
@@ -42,13 +42,14 @@ function password($id)
         class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out
          transition-all md:max-w-2xl md:w-full m-3 md:mx-auto h-[calc(100%-3.5rem)] min-h-[calc(100%-3.5rem)] flex items-center">
         <div
-            class="w-full max-h-full overflow-hidden flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto">
+            class="w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
             <div class="flex items-center py-3 px-4">
-                <h3 class="font-bold text-gray-800 mx-auto">
+                <h3 class="font-bold text-gray-800 mx-auto dark:text-white">
                     Edit User Admin
                 </h3>
-                <button type="button" class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent
-        text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none ml-auto"
+                <button type="button"
+                    class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent
+        text-gray-800 dark:text-white hover:bg-gray-100  dark:hover:bg-neutral-700 disabled:opacity-50 disabled:pointer-events-none ml-auto"
                     data-hs-overlay="#hs-vertically-centered-scrollable-modal">
                     <span class="sr-only">Close</span>
                     <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -59,7 +60,9 @@ function password($id)
                     </svg>
                 </button>
             </div>
-            <div class="text-gray-500 text-center">Leave both password fields blank to keep the current password.</div>
+            <div class="text-gray-500 text-center dark:text-white">Leave both password fields blank to keep the
+                current password.
+            </div>
             <div class="p-4 overflow-y-auto">
                 <div class="flex items-center py-3 px-4">
                     <label class="<?php echo $css['label'] ?>">Password</label>
@@ -86,7 +89,7 @@ toolTip(array('<strong>Disabled:</strong> No access to cameras.', '<strong>View 
                 <div class="flex items-center py-3 px-4">
                     <label class="<?php echo $css['label'] ?>">Session Timeout</label>
                     <?php echo dropdown(2, array('Disabled', 5, 10, 15, 30, 45, 60, 120, 540), '5', 'min-w-32') ?>
-                    <p class="block text-sm font-medium ml">minutes</p>
+                    <p class="block text-sm font-medium ml dark:text-white">minutes</p>
                     <?php echo toolTip(array('The number of minutes your browser can sit', 'idle before you are logged out of the
                     WebUI', )) ?>
 
@@ -100,9 +103,9 @@ toolTip(array('<strong>Disabled:</strong> No access to cameras.', '<strong>View 
                         <?php echo checkboxList('Administer Users', array('Enables ⁄ disables administration of users.', 'With this flag, users can add, edit, or delete any user!'), $css['label']) ?>
                     </div>
                     <div class="flex flex-col space-y-4 mx-4">
-                        <?php echo checkboxList('View Reports', array('Enables ⁄ disables viewing of Reports pages.'), $css['label'] . ' min-w-[230px] ') ?>
-                        <?php echo checkboxList('Management Group Maintenance', array('Enables ⁄ disables access to Management Group Maintenance.'), 'min-w-[230px] ') ?>
-                        <?php echo checkboxList('Manual Traffic Calls', array('Enables ⁄ disables placing of manual', 'calls, queues, and pedestrian button pushes.'), 'min-w-[230px] ') ?>
+                        <?php echo checkboxList('View Reports', array('Enables ⁄ disables viewing of Reports pages.'), $css['label'] . ' min-w-[270px] ') ?>
+                        <?php echo checkboxList('Management Group Maintenance', array('Enables ⁄ disables access to Management Group Maintenance.'), 'min-w-[270px] ') ?>
+                        <?php echo checkboxList('Manual Traffic Calls', array('Enables ⁄ disables placing of manual', 'calls, queues, and pedestrian button pushes.'), 'min-w-[270px] ') ?>
                     </div>
                 </div>
             </div>
@@ -111,8 +114,8 @@ toolTip(array('<strong>Disabled:</strong> No access to cameras.', '<strong>View 
                     text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-overlay="#hs-vertically-centered-scrollable-modal">
                     Close </button>
-                <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border
-                    bg-lime-600 text-white disabled:opacity-50 disabled:pointer-events-none">
+                <button type="button" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 hover:bg-white hover:text-gray-800 shadow-sm
+         bg-lime-100 text-white dark:border-neutral-700 disabled:opacity-50 disabled:pointer-events-none">
                     Save
                 </button>
             </div>
@@ -120,15 +123,15 @@ toolTip(array('<strong>Disabled:</strong> No access to cameras.', '<strong>View 
     </div>
 </div>
 <div class="max-w-xs">
-    <div class="flex flex-col  bg-white">
+    <div class="flex flex-col bg-white dark:bg-neutral-900">
         <div class="-m-1.5 overflow-x-auto">
             <div class="p-1.5 min-w-full inline-block align-middle">
-                <div class="border rounded-lg overflow-hidden">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
+                <div class="border rounded-lg overflow-hidden dark:border-neutral-700">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                        <thead class="bg-gray-50 dark:bg-neutral-800">
                             <tr>
                                 <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400">
                                     Users</th>
                                 <th scope="col">
                                 </th>
@@ -136,16 +139,16 @@ toolTip(array('<strong>Disabled:</strong> No access to cameras.', '<strong>View 
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200 font-medium ">
+                        <tbody class="divide-y divide-gray-200 dark:divide-neutral-700 font-medium">
                             <?php foreach (array('User Admin', 'User View') as $title) {?>
                             <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                     <?php echo $title ?></td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                     <button data-hs-overlay="#hs-vertically-centered-scrollable-modal"
                                         class="hover:text-lime-100"><i class="fa-light fa-file-pen"></i></button>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                     <button href="#" class="hover:text-lime-100"><i button
                                             class="fa-light fa-trash"></i></button>
                                 </td>
@@ -159,8 +162,8 @@ toolTip(array('<strong>Disabled:</strong> No access to cameras.', '<strong>View 
     </div>
 </div>
 <?php foreach (array('Propagate User', 'New User') as $title) {?>
-<button type="button" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm
-    hover:bg-lime-100 hover:text-white disabled:opacity-50 disabled:pointer-events-none">
+<button type="button" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 hover:bg-white hover:text-gray-800 shadow-sm
+         bg-lime-100 text-white dark:border-neutral-700 disabled:opacity-50 disabled:pointer-events-none">
     <?php echo $title ?>
 </button>
 <?php }?>

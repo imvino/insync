@@ -22,7 +22,7 @@ function checkboxList($title, $help, $css = '')
     $id = str_replace(' ', '_', strtolower($title));
     ?>
 <div class="flex items-center">
-    <label for="<?php echo $id ?>" class="<?php echo $css ?>"><?php echo $title ?></label>
+    <label for="<?php echo $id ?>" class="dark:text-white <?php echo $css ?>"><?php echo $title ?></label>
     <input type="checkbox"
         class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
         id="<?php echo $id ?>">
@@ -74,7 +74,8 @@ function inputBox($params)
     $id = str_replace(' ', '_', strtolower($params['title']));
     ?>
 
-<label for="<?php echo $id ?>" class="mb-1 text-sm font-medium text-gray-700"><?php echo $params['title'] ?>
+<label for="<?php echo $id ?>"
+    class="mb-1 text-sm font-medium text-gray-700 dark:text-white"><?php echo $params['title'] ?>
     <?php echo $params['tip'] ? toolTip($params['tip']) : '' ?></label>
 <input type="text" id="<?php echo $id ?>"
     class="py-2 block w-full max-w-[15rem] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"

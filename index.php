@@ -1,7 +1,7 @@
 <?php
 $shortcuts = [
     "titles" => ['Multiple Cameras View', 'Daily Summary', 'History Viewer', 'Invalid Logins'],
-    "links" => ["cameraViewMulti.php", "dailySummary.php", "history.php", "invalidLogins.php"],
+    "links" => ["cameraViewMulti.php", "reports/dailySummary", "reports/history", "account/invalidLogins"],
     "icons" => ['<i class="fa-solid fa-grid-horizontal"></i>', '<i class="fa-solid fa-file-chart-column"></i>',
         '<i class="fa-solid fa-list-timeline"></i>', '<i class="fa-solid fa-arrow-right-to-arc"></i>'],
 ];
@@ -13,11 +13,11 @@ ob_start();
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-6 md:gap-10">
         <?php foreach ($shortcuts['titles'] as $index => $titles) {?>
         <a href="/<?php echo $shortcuts['links'][$index]; ?>"
-            class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-900">
-            <div class="flex text-gray-400 text-5xl justify-center items-center w-[62px] h-[62px]">
+            class="size-full bg-white shadow-lg rounded-lg p-5 dark:bg-neutral-800">
+            <div class="flex text-gray-400 dark:text-white text-5xl justify-center items-center w-[62px] h-[62px]">
                 <?php echo $shortcuts['icons'][$index]; ?>
             </div>
-            <p class="text-gray-600 text-center dark:text-neutral-400"><?php echo $titles ?></p>
+            <p class="text-gray-600 text-center dark:text-white"><?php echo $titles ?></p>
         </a>
         <?php }?>
     </div>

@@ -38,12 +38,12 @@ HTML;
 
 <div class="flex items-center">
     <?php include '../../components/daterange.php';?>
-    <button type="button"
-        class="mt-6 ml-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-lime-100 hover:text-white disabled:opacity-50 disabled:pointer-events-none">
+    <button type="button" class="mt-6 ml-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 hover:bg-white hover:text-gray-800 shadow-sm
+         bg-lime-100 text-white dark:border-neutral-700 disabled:opacity-50 disabled:pointer-events-none">
         Load
     </button>
     <button type="button"
-        class="mt-6 ml-2 py-2.5 px-3 rounded-lg border border-lime-100 text-lime-100 hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none">
+        class="mt-6 ml-2 py-2.5 px-3 rounded-lg border border-lime-100 text-lime-100 hover:border-lime-100 hover:text-lime-100 disabled:opacity-50 disabled:pointer-events-none">
         <i class="fa-regular fa-arrow-down-to-bracket"></i>
     </button>
 </div>
@@ -52,8 +52,9 @@ HTML;
     <div class="border-b border-gray-200 px-4 dark:border-neutral-700">
         <nav class="flex space-x-2" aria-label="Tabs" role="tablist">
             <?php foreach ($tabs as $index => $tab): ?>
-            <button type="button"
-                class="hs-tab-active:font-semibold hs-tab-active:border-blue-600 hs-tab-active:text-blue-600 py-4 px-1 inline-flex items-center gap-x-2 border-b-2 border-transparent text-sm whitespace-nowrap text-gray-500 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:text-blue-500 <?php echo $index === 0 ? 'active' : ''; ?>"
+            <button type="button" class="hs-tab-active:font-semibold hs-tab-active:border-lime-100 hs-tab-active:text-lime-100 py-4 px-1 inline-flex items-center gap-x-2
+                border-b-2 border-transparent dark:text-white text-sm whitespace-nowrap text-gray-800 hover:text-lime-100 disabled:opacity-50 disabled:pointer-events-none
+                dark:text-neutral-400 dark:hover:text-lime-100 <?php echo $index === 0 ? 'active' : ''; ?>"
                 id="basic-tabs-item-<?php echo $index + 1; ?>" data-hs-tab="#basic-tabs-<?php echo $index + 1; ?>"
                 aria-controls="basic-tabs-<?php echo $index + 1; ?>" role="tab">
                 <?php echo $tab; ?>

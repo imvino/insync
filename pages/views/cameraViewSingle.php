@@ -3,7 +3,7 @@
 ob_start();
 ?>
 
-<div class="dark:text-white">Map page content.</div>
+<div class="dark:text-white">Camera View page content.</div>
 
 <?php
 // Get the buffered output

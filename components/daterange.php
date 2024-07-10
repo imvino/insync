@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
-
+<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
 <style>
 [x-cloak] {
     display: none;
@@ -24,34 +23,35 @@
     <div class="relative" @keydown.escape="closeDatepicker()" @click.outside="closeDatepicker()">
         <div class="flex items-end space-x-4">
             <div class="flex flex-col">
-                <label for="start-date" class="mb-1 text-sm font-medium text-gray-700">Start Date/Time</label>
+                <label for="start-date" class="mb-1 text-sm font-medium text-gray-700 dark:text-white">Start
+                    Date/Time</label>
                 <div class="relative w-52">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <i class="fa-light fa-calendar-range text-gray-400"></i>
                     </div>
                     <input type="text" id="start-date" readonly
                         @click="endToShow = 'from'; init(); showDatepicker = true" x-model="outputDateFromValue"
-                        :class="{'font-semibold': endToShow == 'from' }"
-                        class="w-full px-10 py-2 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline-none text-gray-600 text-[15px]"
-                        placeholder="Select Date/Time">
+                        :class="{'font-semibold': endToShow == 'from' }" class="w-full px-10 py-2 leading-none rounded-lg shadow-sm dark:border-neutral-700 focus:outline-none
+                        focus:shadow-outline-none text-gray-900 text-[15px]" placeholder="Select Date/Time">
                 </div>
             </div>
 
             <div class="flex flex-col">
-                <label for="end-date" class="mb-1 text-sm font-medium text-gray-700">End Date/Time</label>
+                <label for="end-date" class="mb-1 text-sm font-medium text-gray-700 dark:text-white">End
+                    Date/Time</label>
                 <div class="relative w-52">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <i class="fa-light fa-calendar-range text-gray-400"></i>
                     </div>
                     <input type="text" id="end-date" readonly @click="endToShow = 'to'; init(); showDatepicker = true"
-                        x-model="outputDateToValue" :class="{'font-semibold': endToShow == 'to' }"
-                        class="w-full px-10 py-2 leading-none rounded-lg shadow-sm focus:outline-none focus:shadow-outline-none text-gray-600 text-[15px]"
-                        placeholder="Select Date/Time">
+                        x-model="outputDateToValue" :class="{'font-semibold': endToShow == 'to' }" class="w-full px-10 py-2 leading-none rounded-lg shadow-sm dark:border-neutral-700 focus:outline-none
+                        focus:shadow-outline-none text-gray-900 text-[15px]" placeholder="Select Date/Time">
                 </div>
             </div>
         </div>
 
-        <div class="absolute bg-white mt-2 rounded-lg shadow p-4 sm:w-80 w-full" x-show="showDatepicker" x-transition>
+        <div class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0" style="width: 17rem"
+            x-show="showDatepicker" x-transition>
             <div class="flex flex-col items-center">
 
                 <div class="w-full flex justify-between items-center mb-2">

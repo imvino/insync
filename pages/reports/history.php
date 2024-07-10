@@ -31,7 +31,7 @@ function inputNumbers($title)
 {
     echo $ele = <<<HTML
     <div class="flex flex-col  max-w-[200px]">
-     <label class="mb-1 text-sm font-medium text-gray-700">$title <span class="text-gray-400 text-xs"> wait times over/sec</span></label>
+     <label class="mb-1 text-sm font-medium text-gray-700 dark:text-white">$title <span class="text-gray-400 text-xs"> wait times over/sec</span></label>
 <div class="bg-white border border-gray-200 rounded-lg shadow-sm"
     data-hs-input-number="">
     <div class="w-full flex justify-between items-center gap-x-1">
@@ -78,21 +78,22 @@ HTML;
     <div><?php echo inputNumbers('Highlight') ?></div>
     <div class=" pl-3"><?php echo inputNumbers('Only Show') ?></div>
     <button type="button"
-        class="mt-6 ml-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-lime-100 hover:text-white disabled:opacity-50 disabled:pointer-events-none">
+        class="mt-6 ml-4 py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 hover:bg-white hover:text-gray-800 dark:border-neutral-700 shadow-sm bg-lime-100 text-white disabled:opacity-50 disabled:pointer-events-none">
         Load
     </button>
-    <button type="button"
-        class="mt-6 ml-2 py-2.5 px-3 rounded-lg border border-lime-100 text-lime-100 hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none">
+    <button type="button" class="mt-6 ml-2 py-2.5 px-3 inline-flex items-center gap-x-2 text-sm
+        font-semibold rounded-lg border border-lime-100 text-lime-100
+        disabled:opacity-50 disabled:pointer-events-none">
         <i class="fa-regular fa-arrow-down-to-bracket"></i>
     </button>
 </div>
 
-<div class="flex flex-col bg-white">
+<div class="flex flex-col bg-white dark:bg-neutral-900">
     <div class="-m-1.5 overflow-x-auto">
         <div class="p-1.5 min-w-full inline-block align-middle">
             <div class="border rounded-lg overflow-hidden dark:border-neutral-700">
                 <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                    <thead class="bg-gray-50 dark:bg-neutral-700">
+                    <thead class="bg-gray-50 dark:bg-neutral-800">
                         <tr>
                             <th rowspan="2"
                                 class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400">
@@ -127,24 +128,24 @@ HTML;
                     <tbody class="divide-y divide-gray-200 dark:divide-neutral-700 font-medium">
                         <?php for ($i = 0; $i < 4; $i++): // Assuming 4 rows for demonstration ?>
 	                        <tr>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
 	                                12:00:17 AM
 	                            </td>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
 	                                4
 	                            </td>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
 	                                Movement <?php echo $i + 1; ?>
 	                            </td>
 	                            <?php foreach ($phases as $phase): ?>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
 	                                0
 	                            </td>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
 	                                0
 	                            </td>
 	                            <?php endforeach;?>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                 90
                             </td>
                         </tr>

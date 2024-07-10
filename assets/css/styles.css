@@ -1,9 +1,23 @@
 @import url('/assets/preline/main.min.css');
 
+/* :is(.dark .dark\:bg-neutral-800) {
+  --tw-bg-opacity: 1;
+  background-color: #374151;
+}
+:is(.dark .dark\:hover\:bg-neutral-700:hover) {
+  --tw-bg-opacity: 1;
+  background-color: transparent;
+  color: white !important;
+}
+:is(.dark .dark\:bg-neutral-900) {
+  --tw-bg-opacity: 1;
+  background-color: #1e293b;
+} */
 .bg {
   background-color: #f8fafc;
 }
-.hover\:bg-lime-100:hover {
+.hover\:bg-lime-100:hover,
+.bg-lime-100 {
   background-color: #65a30d;
 }
 .hover\:text-lime-100:hover,
@@ -13,7 +27,8 @@
 }
 .border-lime-100,
 .focus\:checked\:border-lime-100:checked:focus,
-.checked\:border-lime-100:checked {
+.checked\:border-lime-100:checked,
+[data-hs-tab].active.hs-tab-active\:border-lime-100 {
   border-color: #65a30d;
 }
 [x-data='app'] select {

@@ -17,7 +17,7 @@ $current_page = basename($_SERVER['REQUEST_URI']);
     <script src="https://kit.fontawesome.com/3e261b1b9d.js" crossorigin="anonymous"></script>
 </head>
 
-<body class='bg'>
+<body class='bg dark:bg-neutral-900'>
     <!-- ========== HEADER ========== -->
     <?php include 'components/header.php'?>
     <!-- ========== END HEADER ========== -->

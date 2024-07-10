@@ -3,8 +3,8 @@
 ob_start();
 ?>
 <div x-data="{ selectedOption: 'Every second' }">
-    <div class="px-1 my-4">Capitolia CA - 41st</div>
-    <div class="px-1 mb-2 text-sm font-semibold">Refresh</div>
+    <div class="px-1 my-4 dark:text-white">Capitolia CA - 41st</div>
+    <div class="px-1 mb-2 text-sm font-semibold dark:text-white">Refresh</div>
     <div class="flex justify-between items-center">
         <!-- Left-aligned dropdown -->
         <div class="hs-dropdown relative inline-flex">

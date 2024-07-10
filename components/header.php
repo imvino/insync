@@ -46,8 +46,8 @@ py-2 dark:bg-neutral-800 dark:border-neutral-700">
             <!-- Breadcrumb -->
 
             <ol class="ms-3 flex items-center whitespace-nowrap px-8">
-                <?php 
-                if (!empty($breadcrumb)) {?>
+                <?php
+if (!empty($breadcrumb)) {?>
                 <li class="flex items-center text-sm text-gray-800 dark:text-neutral-400">
                     <?php echo $breadcrumb['title'] ?>
                     <svg class="flex-shrink-0 mx-3 overflow-visible size-2.5 text-gray-400 dark:text-neutral-500"
@@ -66,7 +66,7 @@ py-2 dark:bg-neutral-800 dark:border-neutral-700">
             <div class="flex flex-row items-center justify-end gap-2">
                 <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
                     <button id="hs-dropdown-with-header" type="button"
-                        class="h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm rounded-full border border-transparent text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700">
+                        class="h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm rounded-full border border-transparent text-gray-800 disabled:opacity-50 disabled:pointer-events-none dark:text-white">
                         <i class="fa-regular fa-circle-user"></i>
                         <!-- <img class="inline-block size-[38px] rounded-full ring-2 ring-white dark:ring-neutral-800"
                                 src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
@@ -91,6 +91,10 @@ py-2 dark:bg-neutral-800 dark:border-neutral-700">
                             </a>
                         </div>
                     </div>
+                </div>
+                <div type="button"
+                    class="py-1 px-1 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:border-blue-600 hover:text-blue-600 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-blue-500 dark:hover:border-blue-600">
+                    <?php include 'darkmode.php'?>
                 </div>
             </div>
         </div>
