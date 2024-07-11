@@ -56,7 +56,7 @@ if (!empty($breadcrumb)) {?>
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </li>
-                <li class="text-sm font-semibold text-gray-800 truncate dark:text-neutral-400" aria-current="page">
+                <li class="text-sm font-semibold text-gray-800 truncate dark:text-white" aria-current="page">
                     <?php echo $breadcrumb['subtitle'] ?>
                 </li>
                 <?php }?>

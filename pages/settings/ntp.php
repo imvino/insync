@@ -10,7 +10,7 @@ hover:bg-white hover:text-gray-800 shadow-sm bg-lime-600 text-white disabled:opa
     <div class="px-1 mb-2 text-sm font-semibold text-gray-700 dark:text-white">Server IP Address</div>
     <div class="flex justify-start items-center">
         <input type="text"
-            class="py-2 block w-full max-w-[15rem] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+            class="py-2 block w-full max-w-[15rem] border-gray-200 rounded-lg text-sm dark:bg-neutral-500 dark:text-white dark:border-neutral-700 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
             placeholder="Enter IP">
         <div class="inline-flex rounded-lg shadow-sm ml-2">
             <button type="button" class="<?php echo $tabCss ?>">

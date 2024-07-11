@@ -48,7 +48,7 @@ HTML;
         </button>
     </div>
 
-    <div class="w-full bg-white rounded-lg shadow-md dark:bg-neutral-800">
+    <div class="w-full bg-white rounded-lg border shadow-md dark:bg-neutral-900">
         <div class="border-b border-gray-200 px-4 dark:border-neutral-700">
             <nav class="flex space-x-2" aria-label="Tabs" role="tablist">
                 <?php foreach ($tabs as $index => $tab): ?>
@@ -68,20 +68,37 @@ HTML;
             <div id="basic-tabs-<?php echo $index + 1; ?>" role="tabpanel"
                 aria-labelledby="basic-tabs-item-<?php echo $index + 1; ?>"
                 class="<?php echo $index === 0 ? '' : 'hidden'; ?>">
-                <p class="text-gray-500 dark:text-neutral-400">
-                    This is the <em
-                        class="font-semibold text-gray-800 dark:text-neutral-200"><?php echo strtolower($tab); ?></em>
-                    tab
-                    body.
-                    <?php
+
+                <?php
 if (strtolower($tab) == "count totals") {
     echo $countTotal;
+} else {
+    echo '<p class="text-gray-500 dark:text-neutral-400">
+    <em class="font-semibold text-gray-800 dark:text-neutral-200">' . strtolower($tab) . '</em> tab body. </p>';
+
+    include '../../components/chart.php';
 }
 ?>
-                </p>
+
             </div>
             <?php endforeach;?>
         </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('[role="tabpanel"]');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const chartContainer = tab.querySelector('[id^="chart-container-"]');
+                    if (chartContainer) {
+                        const containerId = '#' + chartContainer.id;
+                        buildAndRenderChart(containerId);
+                    }
+                });
+            });
+        });
+        </script>
+
     </div>
 </div>
 <?php

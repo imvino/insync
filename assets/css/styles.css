@@ -1,18 +1,41 @@
 @import url('/assets/preline/main.min.css');
 
-/* :is(.dark .dark\:bg-neutral-800) {
+/* primary */
+:is(.dark .dark\:bg-neutral-800) {
   --tw-bg-opacity: 1;
   background-color: #374151;
+}
+/* secondary */
+:is(.dark .dark\:bg-neutral-900) {
+  --tw-bg-opacity: 1;
+  background-color: #1e293b;
+}
+/* buttons */
+:is(.dark .dark\:bg-neutral-500) {
+  --tw-bg-opacity: 1;
+  background-color: #0f172a;
+}
+/* hover */
+:is(.dark .dark\:hover\:bg-neutral-800:hover) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255);
+  color: black;
 }
 :is(.dark .dark\:hover\:bg-neutral-700:hover) {
   --tw-bg-opacity: 1;
   background-color: transparent;
   color: white !important;
 }
-:is(.dark .dark\:bg-neutral-900) {
+/* table */
+:is(.dark .dark\:odd\:bg-neutral-900:nth-child(odd)) {
   --tw-bg-opacity: 1;
-  background-color: #1e293b;
-} */
+  background-color: #0f172a;
+}
+:is(.dark .dark\:even\:bg-neutral-800:nth-child(even)) {
+  --tw-bg-opacity: 1;
+  background-color: #374151;
+}
+
 .bg {
   background-color: #f8fafc;
 }

@@ -32,17 +32,17 @@ function inputNumbers($title)
     echo $ele = <<<HTML
     <div class="flex flex-col  max-w-[200px]">
      <label class="mb-1 text-sm font-medium text-gray-700 dark:text-white">$title <span class="text-gray-400 text-xs"> wait times over/sec</span></label>
-<div class="bg-white border border-gray-200 rounded-lg shadow-sm"
+<div class="bg-white dark:bg-neutral-500 border border-gray-200 dark:border-neutral-700 rounded-lg shadow-sm"
     data-hs-input-number="">
     <div class="w-full flex justify-between items-center gap-x-1">
         <div class="grow py-1 px-3">
-            <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0" type="number"
+            <input class="w-full p-0 bg-transparent border-0 text-gray-800 dark:text-white focus:ring-0" type="number"
                 value="1" data-hs-input-number-input="">
         </div>
-        <div
-            class="flex items-center -gap-y-px divide-x divide-gray-200 border-s border-gray-200">
+        <div class="flex items-center -gap-y-px divide-x divide-gray-200 dark:divide-neutral-700 border-s border-gray-200 dark:border-neutral-700">
             <button type="button" style="height: 32px"
-                class="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-medium last:rounded-e-lg bg-white text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                class="size-10 inline-flex justify-center items-center gap-x-2 text-sm  dark:text-white font-medium last:rounded-e-lg bg-white
+                dark:bg-neutral-500 dark:hover:bg-neutral-800 text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                 data-hs-input-number-decrement="">
                 <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -51,7 +51,8 @@ function inputNumbers($title)
                 </svg>
             </button>
             <button type="button" style="height: 32px"
-                class="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-medium last:rounded-e-lg bg-white text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                class="size-10 inline-flex justify-center items-center gap-x-2 text-sm  dark:text-white font-medium last:rounded-e-lg bg-white
+                dark:bg-neutral-500 dark:hover:bg-neutral-800 text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                 data-hs-input-number-increment="">
                 <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -127,24 +128,24 @@ HTML;
                     </thead>
                     <tbody class="divide-y divide-gray-200 dark:divide-neutral-700 font-medium">
                         <?php for ($i = 0; $i < 4; $i++): // Assuming 4 rows for demonstration ?>
-	                        <tr>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-	                                12:00:17 AM
-	                            </td>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-	                                4
-	                            </td>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-	                                Movement <?php echo $i + 1; ?>
-	                            </td>
-	                            <?php foreach ($phases as $phase): ?>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-	                                0
-	                            </td>
-	                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-	                                0
-	                            </td>
-	                            <?php endforeach;?>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                12:00:17 AM
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                4
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                Movement <?php echo $i + 1; ?>
+                            </td>
+                            <?php foreach ($phases as $phase): ?>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                0
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                                0
+                            </td>
+                            <?php endforeach;?>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
                                 90
                             </td>

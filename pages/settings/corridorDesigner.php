@@ -2,7 +2,8 @@
 extract(require_once '../../utils/tools.php');
 
 ob_start();
-$tab = "py-2.5 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+$tab = "py-2.5 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg first:ms-0 last:rounded-e-lg text-sm font-medium focus:z-10 border
+border-gray-200 bg-white dark:bg-neutral-500 dark:hover:bg-neutral-800 dark:text-white dark:border-neutral-700 text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
 ?>
 <div class="my-4 mb-8">
     <div class="flex justify-between items-center">
@@ -12,8 +13,8 @@ $tab = "py-2.5 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg f
             <div class="hs-dropdown relative inline-flex">
                 <button id="hs-dropdown-default" type="button" class="hs-dropdown-toggle py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border
                 border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50
-                disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white
-                dark:hover:bg-neutral-800">
+                disabled:pointer-events-none dark:bg-neutral-500 dark:border-neutral-700 dark:text-white
+               dark:hover:bg-neutral-800">
                     <span>+ Add</span> <!-- Bind text to selectedOption -->
                     <svg class="hs-dropdown-open:rotate-180 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -25,7 +26,7 @@ $tab = "py-2.5 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg f
             p-2 mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0
             after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full">
                     <a class='dropdown-item flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none
-                focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300'
+                focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-300'
                         href='#'>Management Group</a>
                 </div>
             </div>
@@ -57,16 +58,18 @@ $tab = "py-2.5 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg f
 
     <div class="flex flex-col  max-w-xs">
         <label class="mb-1 text-sm font-medium text-gray-700 dark:text-white">Management Group Title</label>
-        <div class="bg-white border border-gray-200 rounded-lg shadow-sm" data-hs-input-number="">
-            <div class="hs-dropdown w-full flex justify-between items-center gap-x-1">
+        <div class="bg-white border border-gray-200 dark:bg-neutral-500 dark:border-neutral-700 rounded-lg shadow-sm"
+            data-hs-input-number="">
+            <div class="hs-dropdown w-full flex justify-between items-center dark:divide-neutral-700 gap-x-1">
                 <div class="grow py-1 px-3">
-                    <input class="w-full p-0 bg-transparent border-0 text-gray-800 focus:ring-0" type="text"
-                        placeholder="Management Group Name">
+                    <input class="w-full p-0 bg-transparent border-0 text-gray-800 dark:text-white focus:ring-0"
+                        type="text" placeholder="Management Group Name">
                 </div>
                 <div id="hs-dropdown-default"
                     class="hs-dropdown-toggle flex items-center -gap-y-px divide-x divide-gray-200 border-s border-gray-200">
-                    <button type="button" style="height: 32px" class="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-medium last:rounded-e-lg bg-white
-                        text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                    <button type="button" style="height: 32px"
+                        class="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-medium last:rounded-e-lg bg-white
+                        dark:bg-neutral-500 dark:text-white text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                         <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -76,14 +79,12 @@ $tab = "py-2.5 px-4 inline-flex items-center gap-x-2 -ms-px first:rounded-s-lg f
                     </button>
                 </div>
                 <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-40 bg-white shadow-md rounded-lg
-            p-2 mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 dark:divide-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0
+            p-2 mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700 after:h-4 after:absolute after:-bottom-4 after:start-0
             after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full">
                     <a class='dropdown-item flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none
-                focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-lime-100 dark:hover:text-neutral-300'
-                        href='#'>Map</a>
+                focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800' href='#'>Map</a>
                     <a class='dropdown-item flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none
-                focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-lime-100 dark:hover:text-neutral-300'
-                        href='#'>Intersection</a>
+                focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-800' href='#'>Intersection</a>
                 </div>
             </div>
         </div>

@@ -42,10 +42,10 @@ foreach ($default as $key => $item) {
 <div class="flex items-center space-x-4">
     <label class="mb-1 text-sm font-medium text-gray-700 dark:text-white">Phase <?php echo $key + 1 ?></label> <input
         type="text"
-        class="py-2 block w-full max-w-sm border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+        class="py-2 block w-full max-w-sm border-gray-200 dark:bg-neutral-500 dark:text-white dark:border-neutral-700 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
         placeholder="Phase Name" value="<?php echo $item['full'] ?>">
     <input type="text" value="<?php echo $item['short'] ?>"
-        class="py-2 block w-full max-w-20 border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+        class="py-2 block w-full max-w-20 border-gray-200 dark:bg-neutral-500 dark:text-white dark:border-neutral-700 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
 </div>
 <?php
 }

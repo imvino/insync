@@ -11,20 +11,20 @@
         <input type="text" readonly x-model="datepickerValue"
             @click="showDatepicker = !showDatepicker; if (showDatepicker) initDate();"
             @keydown.escape="showDatepicker = false"
-            class="w-full px-10 py-2 leading-none rounded-lg shadow-sm  dark:border-neutral-700 focus:outline-none focus:shadow-outline-none text-gray-900 text-[15px]"
+            class="w-full px-10 py-2 leading-none rounded-lg shadow-sm  dark:border-neutral-700 dark:bg-neutral-500  dark:text-white focus:outline-none focus:shadow-outline-none text-gray-900 text-[15px]"
             placeholder="Select date">
 
         <div class="absolute top-0 left-0 px-3 py-2">
             <i class="fa-light fa-calendar-range text-gray-400"></i>
         </div>
 
-        <div class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0" style="width: 17rem"
+        <div class="bg-white dark:bg-neutral-500 mt-12 rounded-lg shadow p-4 absolute top-0 left-0" style="width: 17rem"
             x-show.transition="showDatepicker" @click.away="showDatepicker = false">
 
             <div class="flex justify-between items-center mb-2">
                 <div>
-                    <span x-text="MONTH_NAMES[month]" class="text-lg font-bold text-gray-800"></span>
-                    <span x-text="year" class="ml-1 text-lg text-gray-600 font-normal"></span>
+                    <span x-text="MONTH_NAMES[month]" class="text-lg font-bold text-gray-800 dark:text-white"></span>
+                    <span x-text="year" class="ml-1 text-lg text-gray-600  dark:text-white font-normal"></span>
                 </div>
                 <div>
                     <button type="button"
@@ -51,7 +51,7 @@
             <div class="flex flex-wrap mb-3 -mx-1">
                 <template x-for="(day, index) in DAYS" :key="index">
                     <div style="width: 14.26%" class="px-1">
-                        <div x-text="day" class="text-gray-800 font-medium text-center text-xs"></div>
+                        <div x-text="day" class="text-gray-800 dark:text-white font-medium text-center text-xs"></div>
                     </div>
                 </template>
             </div>
@@ -65,7 +65,7 @@
                     <div style="width: 14.28%" class="px-1 mb-1">
                         <div @click="isFutureDate(date) ? null : getDateValue(date)" x-text="date"
                             class="cursor-pointer text-center text-sm leading-none rounded-full leading-loose transition ease-in-out duration-100"
-                            :class="{'bg-lime-600 text-white': isSelected(date), 'text-gray-700 hover:bg-blue-200': !isSelected(date), 'cursor-not-allowed text-gray-400': isFutureDate(date)}">
+                            :class="{'bg-lime-600 text-white': isSelected(date), 'text-gray-700 dark:text-white dark:hover:bg-neutral-800 hover:bg-blue-200': !isSelected(date), 'cursor-not-allowed text-gray-400': isFutureDate(date)}">
                         </div>
                     </div>
                 </template>

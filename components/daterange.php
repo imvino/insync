@@ -31,7 +31,7 @@
                     </div>
                     <input type="text" id="start-date" readonly
                         @click="endToShow = 'from'; init(); showDatepicker = true" x-model="outputDateFromValue"
-                        :class="{'font-semibold': endToShow == 'from' }" class="w-full px-10 py-2 leading-none rounded-lg shadow-sm dark:border-neutral-700 focus:outline-none
+                        :class="{'font-semibold': endToShow == 'from' }" class="w-full px-10 py-2 leading-none rounded-lg shadow-sm dark:text-white dark:bg-neutral-500 dark:border-neutral-700 focus:outline-none
                         focus:shadow-outline-none text-gray-900 text-[15px]" placeholder="Select Date/Time">
                 </div>
             </div>
@@ -44,20 +44,21 @@
                         <i class="fa-light fa-calendar-range text-gray-400"></i>
                     </div>
                     <input type="text" id="end-date" readonly @click="endToShow = 'to'; init(); showDatepicker = true"
-                        x-model="outputDateToValue" :class="{'font-semibold': endToShow == 'to' }" class="w-full px-10 py-2 leading-none rounded-lg shadow-sm dark:border-neutral-700 focus:outline-none
+                        x-model="outputDateToValue" :class="{'font-semibold': endToShow == 'to' }" class="w-full px-10 py-2 leading-none rounded-lg shadow-sm dark:text-white dark:bg-neutral-500 dark:border-neutral-700 focus:outline-none
                         focus:shadow-outline-none text-gray-900 text-[15px]" placeholder="Select Date/Time">
                 </div>
             </div>
         </div>
 
-        <div class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0" style="width: 17rem"
+        <div class="bg-white dark:bg-neutral-500 mt-12 rounded-lg shadow p-4 absolute top-0 left-0" style="width: 17rem"
             x-show="showDatepicker" x-transition>
             <div class="flex flex-col items-center">
 
                 <div class="w-full flex justify-between items-center mb-2">
                     <div>
-                        <span x-text="MONTH_NAMES[month]" class="text-lg font-bold text-gray-800"></span>
-                        <span x-text="year" class="ml-1 text-lg text-gray-600 font-normal"></span>
+                        <span x-text="MONTH_NAMES[month]"
+                            class="text-lg font-bold text-gray-800 dark:text-white"></span>
+                        <span x-text="year" class="ml-1 text-lg text-gray-600 dark:text-white font-normal"></span>
                     </div>
                     <div>
                         <button type="button"
@@ -84,7 +85,7 @@
                 <div class="w-full flex flex-wrap mb-3 -mx-1">
                     <template x-for="(day, index) in DAYS" :key="index">
                         <div style="width: 14.26%" class="px-1">
-                            <div x-text="day" class="text-gray-800 font-medium text-center text-xs">
+                            <div x-text="day" class="text-gray-800 dark:text-white font-medium text-center text-xs">
                             </div>
                         </div>
                     </template>
@@ -92,14 +93,14 @@
 
                 <div class="flex flex-wrap -mx-1">
                     <template x-for="blankday in blankdays">
-                        <div style="width: 14.28%" class="text-center border p-1 border-transparent text-sm">
+                        <div style="width: 14.28%" class="text-center border p-0 border-transparent text-sm">
                         </div>
                     </template>
                     <template x-for="(date, dateIndex) in no_of_days" :key="dateIndex">
                         <div style="width: 14.28%">
                             <div @click="getDateValue(date, false)" @mouseenter="getDateValue(date, true)" x-text="date"
-                                class="p-1 cursor-pointer text-center text-sm leading-none leading-loose transition ease-in-out duration-100"
-                                :class="{'font-bold': isToday(date) == true, 'bg-blue-800 text-white rounded-l-full': isDateFrom(date) == true, 'bg-blue-800 text-white rounded-r-full': isDateTo(date) == true, 'bg-blue-200': isInRange(date) == true }">
+                                class="p-0 dark:text-white cursor-pointer text-center text-sm leading-none leading-loose transition ease-in-out duration-100"
+                                :class="{'font-bold': isToday(date) == true, 'bg-lime-100 text-white rounded-l-full': isDateFrom(date) == true, 'bg-lime-100 text-white rounded-r-full': isDateTo(date) == true, 'bg-gray-200 dark:bg-neutral-900': isInRange(date) == true }">
                             </div>
                         </div>
                     </template>
@@ -161,7 +162,7 @@
                         </template>
                     </div>
                     <div class="inline-block px-2 h-full">to</div>
-                    <div class="inline-flex items-center h-full px-2 py-1 rounded-r-md bg-white">
+                    <div class="inline-flex items-center h-full px-2 py-1 rounded-r-md bg-white text-sm ">
                         <div class="flex flex-col items-center">
                             <div class="relative">
                                 <input @click="showToHourPicker=true" type="text" value="11" x-model="hourToValue"
@@ -217,9 +218,9 @@
 
                 <div>
                     <button @click="showDatepicker = false"
-                        class="px-2 py-1 border border-gray-300 hover:border-gray-500 rounded-md">Cancel</button>
+                        class="px-2 py-1 border border-gray-300 hover:border-gray-500 dark:bg-white text-sm rounded-md">Cancel</button>
                     <button @click="outputDateValues(); showDatepicker = false"
-                        class="px-2 py-1 border border-lime-100 bg-lime-600 text-white rounded-md">OK</button>
+                        class="px-2 py-1 border border-lime-100 bg-lime-600 text-white text-sm rounded-md">OK</button>
                 </div>
 
             </div>

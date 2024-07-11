@@ -27,7 +27,8 @@ function inputTags($title, $dropdown_menu)
                 <?php echo $title ?>
             </label>
             <div @click="openDropdown" id="tagInput"
-                class="hs-dropdown-toggle py-1 px-2 inline-flex items-center gap-x-2 font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm disabled:opacity-50 disabled:pointer-events-none">
+                class="hs-dropdown-toggle py-1 px-2 inline-flex items-center gap-x-2 font-medium rounded-lg border border-gray-200 bg-white text-gray-800
+                shadow-sm  dark:border-neutral-700 dark:bg-neutral-500 disabled:opacity-50 disabled:pointer-events-none">
                 <span id="tagDisplay">
                     <template x-for="tag in tags" :key="tag">
                         <span
@@ -44,7 +45,7 @@ function inputTags($title, $dropdown_menu)
         </div>
         <!-- Dropdown menu -->
         <div x-show="isOpen" @click.away="closeDropdown"
-            class="w-full absolute mt-1 max-w-[230px] bg-white border border-gray-100 rounded-md shadow-lg"
+            class="w-full absolute mt-1 max-w-[230px] bg-white dark:bg-neutral-500 border border-gray-100 rounded-md shadow-lg"
             id="dropdown">
             <?php render_dropdown_menu($dropdown_menu);?>
         </div>

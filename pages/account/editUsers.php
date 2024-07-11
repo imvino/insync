@@ -11,8 +11,8 @@ function password($id)
 {
     ?>
 <div class="relative">
-    <input id="<?php echo $id ?>" type="password"
-        class="py-2 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none min-w-48"
+    <input id="<?php echo $id ?>" type="password" class="py-2 px-4 block w-full border-gray-200 rounded-lg text-sm dark:bg-neutral-500 dark:text-white dark:border-neutral-700 #
+        focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none min-w-48"
         placeholder="<?php echo $id === 'password' ? 'Password' : 'Confirm Password' ?>" value="">
     <button type="button" data-hs-toggle-password='{
         "target": "#<?php echo $id ?>" }' class="absolute top-0 end-0 p-3.5 rounded-e-md">
@@ -49,7 +49,7 @@ function password($id)
                 </h3>
                 <button type="button"
                     class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent
-        text-gray-800 dark:text-white hover:bg-gray-100  dark:hover:bg-neutral-700 disabled:opacity-50 disabled:pointer-events-none ml-auto"
+        text-gray-800 dark:text-white hover:bg-gray-100  dark:hover:bg-neutral-700 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-overlay="#hs-vertically-centered-scrollable-modal">
                     <span class="sr-only">Close</span>
                     <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -110,8 +110,8 @@ toolTip(array('<strong>Disabled:</strong> No access to cameras.', '<strong>View 
                 </div>
             </div>
             <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t">
-                <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white
-                    text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm
+         hover:bg-lime-100 hover:text-white dark:border-neutral-700 disabled:opacity-50 disabled:pointer-events-none"
                     data-hs-overlay="#hs-vertically-centered-scrollable-modal">
                     Close </button>
                 <button type="button" class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 hover:bg-white hover:text-gray-800 shadow-sm
