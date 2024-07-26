@@ -2,13 +2,16 @@
 
 // this checks to see if we're calling this page as a require() from another script
 // if so, validation should be done there, and we should skip it here
-//if(!isset($loggedIn) || !$loggedIn)
-//{
-//	// this must be included on all pages to authenticate the user
-//	require_once($_SERVER['DOCUMENT_ROOT'] . "/auth/authSystem.php");
-//	$permissions = authSystem::ValidateUser();
-//	// end
-//}
+if(!isset($loggedIn) || !$loggedIn)
+{
+//	 echo json_encode(['error' => 'invalid login']);
+//    exit;
+	
+	// this must be included on all pages to authenticate the user
+		//	require_once($_SERVER['DOCUMENT_ROOT'] . "/auth/authSystem.php");
+		//	$permissions = authSystem::ValidateUser();
+	// end
+}
 //include_once("/helpers/pathDefinitions.php");
 //require_once($_SERVER['DOCUMENT_ROOT'] . "/helpers/FileIOHelper.php");
 //require "./websocket_client.php";
